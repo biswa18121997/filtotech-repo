@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 // Sample client data based on your Pharmaceutical & Healthcare focus
 const clients = [
@@ -12,7 +12,7 @@ const clients = [
   // Duplicate the list to create a seamless infinite loop
 ];
 
-const tickerVariants = {
+const tickerVariants : Variants = {
   animate: {
     x: [0, -1035], // Adjust this value based on your total content width
     transition: {
