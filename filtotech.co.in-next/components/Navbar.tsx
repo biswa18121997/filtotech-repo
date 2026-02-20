@@ -7,6 +7,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BsTwitterX } from "react-icons/bs";
+
 // Using standard Shadcn-like utility classes
 const Navbar = () => {
   const [activeMobileSub, setActiveMobileSub] = useState<string | null>(null);
@@ -17,10 +19,12 @@ const Navbar = () => {
     { title: "About Us", href: "/about-us" },
     { 
       title: "Services & Solutions", 
+      href: "/services",
       submenu: ["HVAC Systems", "BMS & EMS", "Electrical", "Clean Rooms", "Process Piping"] 
     },
     { 
       title: "Products", 
+      href: "/products",
       submenu: ["Air Handling Units", "Centrifugal Fan", "Axial Flow Fan", "Wet Scrubber", "Passbox"] 
     },
     { title: "Gallery", href: "/gallery" },
@@ -28,9 +32,9 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full fixed top-0 z-50 shadow-sm">
+    <header className="w-full h-fit fixed top-0 z-50 shadow-sm">
       {/* PART 1: TOP BAR (Certifications & Contact) */}
-      <section className="relative overflow-hidden bg-zinc-950 text-zinc-400 border-b border-white/5">
+      <section className="relative overflow-hidden bg-zinc-950 text-zinc-400 border-b border-white/5 p-1">
   {/* Sublte mesh gradient background for texture */}
   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_120%,#3b82f6,transparent_50%)]" />
 
@@ -55,7 +59,7 @@ const Navbar = () => {
     </div>
 
     {/* RIGHT SIDE: Interactive Contact Info */}
-    <div className="flex items-center gap-4 lg:gap-8 py-2">
+    <div className="flex items-center gap-4 lg:gap-8 py-2 text-neutral-200 text-xl pl-2 rounded-2xl">
       <address className="not-italic hidden sm:flex items-center gap-4 md:gap-6 text-[11px] md:text-xs font-medium">
         <a 
           href="tel:+917003259863" 
@@ -64,7 +68,7 @@ const Navbar = () => {
           <span className="bg-zinc-800 p-1.5 rounded-full group-hover:bg-blue-600 transition-colors">
             <Phone size={12} className="text-blue-400 group-hover:text-white" />
           </span>
-          <span className="hidden lg:inline">+91-7003259863</span>
+          <span className="hidden inline lg:inline text-sm">+917003259863</span>
         </a>
         
         <a 
@@ -74,23 +78,22 @@ const Navbar = () => {
           <span className="bg-zinc-800 p-1.5 rounded-full group-hover:bg-blue-600 transition-colors">
             <Mail size={12} className="text-blue-400 group-hover:text-white" />
           </span>
-          <span className="hidden lg:inline">sales@filtotech.co.in</span>
+          <span className="hidden lg:inline text-sm">sales@filtotech.co.in</span>
         </a>
       </address>
 
       {/* Social Links with Hover Glow */}
-      <div className="flex gap-4 border-l border-zinc-800 pl-4 md:pl-6 bg-white/10 h-full w-full">
+      <div className="flex gap-4 border-l border-zinc-800 pl-4 md:pl-6  h-full w-full">
         <Link href={'https://www.facebook.com/profile.php?id=61587887188009'}>
-            <Facebook size={14} className="hover:text-blue-500 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] cursor-pointer transition-all" />
+            <Facebook size={24} className="hover:text-blue-500 hover:scale-150 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] cursor-pointer transition-all" />
         </Link>
         <Link href={'https://www.facebook.com/profile.php?id=61587887188009'}>
 
-            <Linkedin size={14} className="hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] cursor-pointer transition-all" />
+            <Linkedin size={24} className="hover:text-blue-500 hover:scale-150 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] cursor-pointer transition-all" />
         </Link>
         <Link href={'https://x.com/filtotech'} >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#faf9f9" className="bi bi-twitter-x text-white" viewBox="0 0 16 16" id="Twitter-X--Streamline-Bootstrap" ><desc>{"\n    Twitter X Streamline Icon: https://streamlinehq.com\n  "}</desc><path d="M12.6 0.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867 -5.07 -4.425 5.07H0.316l5.733 -6.57L0 0.75h5.063l3.495 4.633L12.601 0.75Zm-0.86 13.028h1.36L4.323 2.145H2.865z" strokeWidth={1} /></svg>
-                    {/* <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-18jsvk2 r-16y2uox r-8kz0gk"><g><path d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z"></path></g></svg> */}
-            {/* // <Image alt='twitter-logo' src={'/XLogo.png'} height={14} width={14} className="text-white" /> */}
+
+          <BsTwitterX className='relative top-1 hover:text-blue-500 hover:scale-150 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] cursor-pointer transition-all'/>
         </Link>
       </div>
     </div>
@@ -103,7 +106,9 @@ const Navbar = () => {
           
           {/* Logo with Engineering Detail */}
           <div className="flex items-center gap-3">
-            <Image src="/FiltotechNewLogo.png" alt="Filtotech Logo" width={250} height={70} className=" p-2 object-contain" />
+            <Link href={'/'}>
+            <Image src="/FiltotechNewLogo.png" alt="Filtotech Logo" width={250} height={90} className=" p-2 object-contain" />
+            </Link>
             {/* <div className="relative">
               <Wind className="w-8 h-8 text-blue-600 animate-pulse" />
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400 rounded-full animate-ping" />
